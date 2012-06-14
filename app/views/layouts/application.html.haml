@@ -1,0 +1,57 @@
+!!!
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %title= content_for?(:title) ? yield(:title) : "rigli"
+    %meta(name="description" content="")
+    %meta(name="author" content="")
+    = csrf_meta_tags
+    = yield(:head)
+    = stylesheet_link_tag "application", :media => "all"
+
+    /[if lt IE 9]
+      %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+
+    %link(rel="shortcut icon" href="images/favicon.ico")
+    %link(rel="apple-touch-icon" href="images/apple-touch-icon.png")
+    %link(rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png")
+    %link(rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png")
+
+  %body
+
+    %header.container.clearfix{role: "banner"}
+
+      %h1
+        = link_to "rigli", :root, class: "brand"
+
+      %nav{role: "navigation"}
+        %ul.nav-list
+          - if user_logged_in?
+            %li.nav-item.main-link
+              %ul
+                %li#menu1.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#menu1"}
+                    My Account
+                    %b.caret
+                      = link_to "Log Out", logout_path
+          - else
+            %li.nav-item.main-link
+              = link_to "Log In", login_path
+
+    .container
+      - flash.each do |name, msg|
+        = content_tag :div, msg.html_safe, :class =>"#{name}", :id => "flash_#{name}"
+
+    = yield
+
+    .container
+      %footer{role: "contentinfo"}
+        %p
+          rigli Copyright &copy; 2012. All Rights Reserved.
+          = link_to "| Feedback |", new_feedback_path, class: "main-link"
+
+    = javascript_include_tag "application", "core"
+    = yield :body_end
+
+
+
