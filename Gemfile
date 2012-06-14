@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 
 gem 'pg'
+gem 'devise'
 gem 'kumade'
 
 group :assets do
@@ -15,7 +16,7 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'guard-rspec', '0.5.5'
-  gem 'rspec-rails', '2.9.0'
+  gem 'rspec-rails', '2.10.0'
 end
 
 group :test do
