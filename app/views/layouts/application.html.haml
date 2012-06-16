@@ -9,6 +9,16 @@
     = yield(:head)
     = stylesheet_link_tag "application", :media => "all"
 
+    :css
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+
     /[if lt IE 9]
       %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
 
@@ -19,24 +29,25 @@
 
   %body
 
-    %header.container.clearfix{role: "banner"}
-
-      %h1
-        = link_to "rigli", :root, class: "brand"
-
-      %nav{role: "navigation"}
-        %ul.nav-list
-          - if user_signed_in?
-            %li.nav-item.main-link
-              %ul
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to "Rig<li>", :root, class: "brand"
+          %ul.nav.pull-right
+            - if user_signed_in?
+              %ul.nav.nav-pills
                 %li#menu1.dropdown
                   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#menu1"}
                     My Account
                     %b.caret
-                      = link_to "Log Out"
-          - else
-            %li.nav-item.main-link
-              = link_to "Log In"
+                  %ul.dropdown-menu
+                    %li
+                      = link_to "My Rigs"
+                    %li
+                      = link_to "Log Out", destroy_user_session_path, :method => :delete
+            - else
+              %li.nav-item.main-link
+                = link_to "Log In"
 
     .container
       - flash.each do |name, msg|
@@ -49,7 +60,7 @@
         %p
           Rig.li Copyright &copy; 2012. All Rights Reserved.
 
-    -# = javascript_include_tag "application", "core"
+    = javascript_include_tag "application", "core"
     = yield :body_end
 
 
