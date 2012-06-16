@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.6'
 
 gem 'pg'
 gem 'devise'
 gem 'kumade'
+gem 'haml', '3.1.4'
+gem 'bootstrap-sass', '2.0.3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
