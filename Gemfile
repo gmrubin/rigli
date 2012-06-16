@@ -7,6 +7,8 @@ gem 'devise'
 gem 'kumade'
 gem 'haml', '3.1.4'
 gem 'bootstrap-sass', '2.0.3'
+gem 'simple_form'
+gem 'pry'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

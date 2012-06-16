@@ -1,0 +1,7 @@
+%p Welcome to Rig.li!
+%p This is the landing page
+
+= simple_form_for @rig, :html => {:class => 'form-horizontal'} do |f|
+  = f.input :name
+  = f.input :description
+  = f.button :submit

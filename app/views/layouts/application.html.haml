@@ -47,13 +47,16 @@
                       = link_to "Log Out", destroy_user_session_path, :method => :delete
             - else
               %li.nav-item.main-link
-                = link_to "Log In"
+                = link_to "Log In", new_user_session_path
 
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg.html_safe, :class =>"#{name}", :id => "flash_#{name}"
 
-    = yield
+    .content-page.container
+      .row
+        .span11
+          = yield
 
     .container
       %footer{role: "contentinfo"}

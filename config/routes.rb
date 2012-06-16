@@ -1,6 +1,8 @@
 Rigli::Application.routes.draw do
   devise_for :users
 
-  root :to => 'rig#new'
+  resources :rigs
+
+  root :to => 'rigs#new'
 
 end
