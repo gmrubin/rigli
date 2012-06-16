@@ -26,17 +26,17 @@
 
       %nav{role: "navigation"}
         %ul.nav-list
-          - if user_logged_in?
+          - if user_signed_in?
             %li.nav-item.main-link
               %ul
                 %li#menu1.dropdown
                   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#menu1"}
                     My Account
                     %b.caret
-                      = link_to "Log Out", logout_path
+                      = link_to "Log Out"
           - else
             %li.nav-item.main-link
-              = link_to "Log In", login_path
+              = link_to "Log In"
 
     .container
       - flash.each do |name, msg|
@@ -47,10 +47,9 @@
     .container
       %footer{role: "contentinfo"}
         %p
-          rigli Copyright &copy; 2012. All Rights Reserved.
-          = link_to "| Feedback |", new_feedback_path, class: "main-link"
+          Rig.li Copyright &copy; 2012. All Rights Reserved.
 
-    = javascript_include_tag "application", "core"
+    -# = javascript_include_tag "application", "core"
     = yield :body_end
 
 

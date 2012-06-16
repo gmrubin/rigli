@@ -1,0 +1,2 @@
+module RigHelper
+end
