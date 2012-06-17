@@ -15,4 +15,10 @@ describe Link do
   it "should create a new link given valid attributes" do
     Link.create!(@attr)
   end
+
+  it "should require a target" do
+    no_target_link = Link.new(@attr.merge(:target => ""))
+    no_target_link.should_not be_valid
+  end
+
 end
