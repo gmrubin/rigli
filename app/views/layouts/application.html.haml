@@ -33,6 +33,11 @@
       .navbar-inner
         .container
           = link_to "Rig<li>", :root, class: "brand"
+          %ul.nav
+            %li
+              = link_to "Popular Rigs"
+            %li
+              = link_to "Popular Links"
           %ul.nav.pull-right
             - if user_signed_in?
               %ul.nav.nav-pills
