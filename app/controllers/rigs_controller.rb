@@ -7,7 +7,7 @@ class RigsController < ApplicationController
   def create
     @rig = Rig.new(params[:rig])
     if @rig.save
-      redirect_to root_path
+      redirect_to @rig
     else
       errors = @rig.errors.full_messages.join("</br>")
       flash.now['error'] = errors
@@ -35,6 +35,6 @@ class RigsController < ApplicationController
   end
 
   def show
-    @rig = Rig.find_by_params[:id]
+    @rig = Rig.find(params[:id])
   end
 end
