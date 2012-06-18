@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617023022) do
+ActiveRecord::Schema.define(:version => 20120618034746) do
 
   create_table "links", :force => true do |t|
     t.string   "short_url"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20120617023022) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "count",       :default => 0
+  end
+
+  create_table "shortened_urls", :force => true do |t|
+    t.integer  "shortened_object_id"
+    t.string   "shortened_object_type"
+    t.string   "surl"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "users", :force => true do |t|
