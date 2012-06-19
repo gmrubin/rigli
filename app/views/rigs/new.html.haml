@@ -4,7 +4,6 @@
 = simple_form_for @rig, :html => {:class => 'form-horizontal'} do |f|
   = f.input :name
   = f.input :description
-  - for links in @rig.links
-    = f.simple_fields_for links do |link_form|
-      = link_form.input :target
+  = f.simple_fields_for :links do |links_form|
+    = links_form.input :target
   = f.button :submit
