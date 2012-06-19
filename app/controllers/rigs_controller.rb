@@ -2,18 +2,19 @@ class RigsController < ApplicationController
 
   def new
     @rig = Rig.new
+    @rig.links.build if @rig.links.empty?
   end
 
   def create
-    @rig = Rig.new(params[:rig])
+    @rig = Rig.create(params[:rig])
     if @rig.save
+      flash[:notice] = "Successfully created a rig!"
       redirect_to @rig
     else
       errors = @rig.errors.full_messages.join("</br>")
       flash.now['error'] = errors
       render :action => :new
     end
-
   end
 
   def destroy

@@ -4,4 +4,7 @@ class Rig < ActiveRecord::Base
   belongs_to :user
   validates :name, :presence => true
   has_many :links
+
+  accepts_nested_attributes_for :links
+
 end
