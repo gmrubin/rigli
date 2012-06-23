@@ -8,7 +8,7 @@ class RigsController < ApplicationController
   def create
     @rig = Rig.create(params[:rig])
     @rig.short = Short.create
-    @rig.links.each { |link| link.short = Short.create  }
+    @rig.links.each { |link| link.short = Short.create }
     if @rig.save
       flash[:notice] = "Successfully created a rig!"
       redirect_to @rig
@@ -40,4 +40,15 @@ class RigsController < ApplicationController
   def show
     @rig = Rig.find(params[:id])
   end
+
+  def redirect
+    @short = Short.find_by_surl!(params[:surl])
+    if @short.shortable_type == "Rig"
+      @rig = @short.shortable
+      redirect_to @rig
+    elsif @short.shortable_type == "Link"
+      redirect_to @short.shortable.target
+    end
+  end
+
 end
