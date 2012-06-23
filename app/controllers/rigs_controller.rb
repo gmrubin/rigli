@@ -7,6 +7,8 @@ class RigsController < ApplicationController
 
   def create
     @rig = Rig.create(params[:rig])
+    @rig.short = Short.create
+    @rig.links.each { |link| link.short = Short.create  }
     if @rig.save
       flash[:notice] = "Successfully created a rig!"
       redirect_to @rig

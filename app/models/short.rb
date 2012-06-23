@@ -1,6 +1,6 @@
-class Shortened_url < ActiveRecord::Base
-  attr_accessible :shortened_object_id, :type, :surl
-  belongs_to :shortened_object, polymorphic: true
+class Short < ActiveRecord::Base
+  attr_accessible :surl
+  belongs_to :shortable, polymorphic: true
   before_create :generate_surl
 
   private

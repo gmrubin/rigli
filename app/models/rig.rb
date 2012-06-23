@@ -1,6 +1,6 @@
 class Rig < ActiveRecord::Base
   attr_accessible :description, :name, :links_attributes
-  has_one :shortened_url, as: :shortened_object
+  has_one :short, as: :shortable
   belongs_to :user
   validates :name, :presence => true
   has_many :links

@@ -4,4 +4,7 @@
 %p
 = @rig.description
 %P
-= @rig.links.all
+
+- @rig.links.each do |link|
+  = link.short.surl
+  = link.target

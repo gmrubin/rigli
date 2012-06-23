@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(:version => 20120618034746) do
     t.integer  "count",       :default => 0
   end
 
-  create_table "shortened_urls", :force => true do |t|
-    t.integer  "shortened_object_id"
-    t.string   "shortened_object_type"
+  create_table "shorts", :force => true do |t|
+    t.integer  "shortable_id"
+    t.string   "shortable_type"
     t.string   "surl"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
