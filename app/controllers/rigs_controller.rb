@@ -43,6 +43,8 @@ class RigsController < ApplicationController
 
   def redirect
     @short = Short.find_by_surl!(params[:surl])
+    @short.increment_count
+    @short.save
     if @short.shortable_type == "Rig"
       @rig = @short.shortable
       redirect_to @rig

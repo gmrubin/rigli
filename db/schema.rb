@@ -11,32 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618034746) do
+ActiveRecord::Schema.define(:version => 20120623234905) do
 
   create_table "links", :force => true do |t|
-    t.string   "short_url"
     t.string   "target"
-    t.integer  "count",      :default => 0
     t.string   "note"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "rig_id"
   end
 
   create_table "rigs", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.integer  "count",       :default => 0
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "shorts", :force => true do |t|
     t.integer  "shortable_id"
     t.string   "shortable_type"
     t.string   "surl"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "count",          :default => 0
   end
 
   create_table "users", :force => true do |t|
