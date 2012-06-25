@@ -6,6 +6,9 @@
 = @rig.description
 %P
 
-- @rig.links.each do |link|
-  = link_to HOST[7..-1]+link.short.surl, HOST+link.short.surl
-  = link.target
+  %ul
+  - @rig.links.each do |link|
+    %li
+      = link_to HOST[7..-1]+link.short.surl, HOST+link.short.surl
+      = link.target
+      = link.note

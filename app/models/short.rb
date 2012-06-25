@@ -7,6 +7,14 @@ class Short < ActiveRecord::Base
     self.count += 1
   end
 
+  def add_content
+    if self.shortable_type == "Link"
+      return URI(self.shortable.target).host
+    else
+      return self.shortable.name
+    end
+  end
+
   private
    def generate_surl
     self.surl = rand(36**6).to_s(36)

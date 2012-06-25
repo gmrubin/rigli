@@ -1,0 +1,7 @@
+%p
+  %ul
+  - @shorts.each do |short|
+    %li
+      = short.count
+      = link_to HOST[7..-1]+short.surl, HOST+short.surl
+      = short.add_content

@@ -35,9 +35,7 @@
           = link_to "Rig<li>", :root, class: "brand"
           %ul.nav
             %li
-              = link_to "Popular Rigs"
-            %li
-              = link_to "Popular Links"
+              = link_to "Popular", rigs_path
           %ul.nav.pull-right
             - if user_signed_in?
               %ul.nav.nav-pills
@@ -47,7 +45,7 @@
                     %b.caret
                   %ul.dropdown-menu
                     %li
-                      = link_to "My Rigs"
+                      = link_to "My Rigs", "../my-rigs"
                     %li
                       = link_to "Log Out", destroy_user_session_path, :method => :delete
             - else
