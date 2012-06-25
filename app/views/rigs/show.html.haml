@@ -1,11 +1,11 @@
 %p Your Rig is ready!
 
 = @rig.name
-= @rig.short.surl
+= link_to HOST[7..-1]+@rig.short.surl, HOST+@rig.short.surl
 %p
 = @rig.description
 %P
 
 - @rig.links.each do |link|
-  = link.short.surl
+  = link_to HOST[7..-1]+link.short.surl, HOST+link.short.surl
   = link.target

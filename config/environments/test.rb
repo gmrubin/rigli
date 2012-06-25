@@ -37,4 +37,7 @@ Rigli::Application.configure do
 
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'example.com' }
+
+  #host for links
+  HOST = 'http://localhost:3000/'
 end
