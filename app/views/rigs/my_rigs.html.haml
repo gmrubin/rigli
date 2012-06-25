@@ -1,0 +1,7 @@
+%p
+  %ul
+  - @rigs.each do |rig|
+    %li
+      = rig.name
+      = link_to HOST[7..-1]+rig.short.surl, HOST+rig.short.surl
+      = rig.short.count

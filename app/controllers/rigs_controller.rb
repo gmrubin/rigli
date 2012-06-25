@@ -7,6 +7,7 @@ class RigsController < ApplicationController
 
   def create
     @rig = Rig.create(params[:rig])
+    @rig.user = current_user
     @rig.short = Short.create
     @rig.links.each { |link| link.short = Short.create }
     if @rig.save
@@ -25,7 +26,11 @@ class RigsController < ApplicationController
   end
 
   def index
-    @rig = Rig.all
+    @shorts = Short.find(:all, order: "count")
+  end
+
+  def my_rigs
+    @rigs = current_user.rigs
   end
 
   def update
